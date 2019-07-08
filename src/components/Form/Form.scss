@@ -5,12 +5,46 @@ input {
   align-self: center;
   justify-self: center;
 
+  font-family: $oxygen;
+  font-size: 1.3rem;
+
+  border: 2px solid $main-color;
+  background-color: $white;
+  color: $dark;
+
+  text-align: center;
+
   padding: 10px;
   margin: 10px auto;
 
+  // NAME INPUT AT TOP
+  .name {
+    background-color: transparent;
+    color: $yellow;
+    font-size: 10rem;
+    font-family: $lobster;
+
+    &:hover,
+    &:active {
+      transition: 0.5s ease;
+      border-bottom: 3px solid $yellow;
+    }
+  }
+
   @media screen and (min-width: $breakpoint-mobile) {
+    width: 90%;
+  }
+
+  &[type="range"] {
+    margin-top: 0;
+    // padding-top: 0;
   }
 }
 
-.form-field {
+label {
+  font-family: $lobster;
+  color: $main-color;
+  font-size: 2rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }

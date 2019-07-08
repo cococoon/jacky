@@ -7,15 +7,28 @@ export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      length: "",
-      weight: ""
+      // name: "",
+      // length: "",
+      // weight: "",
+      // userName: "",
+      // street: "",
+      // streetNumber: "",
+      // postalCode: "",
+      // munincipality: ""
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
+  handleChange = e => {
     let value = e.target.value;
-  }
+    this.setState({
+      [e.target.name]: value
+    });
+  };
+
+  handleSubmit = e => {
+    console.log(this.state);
+  };
 
   render() {
     return (
@@ -24,21 +37,34 @@ export default class Form extends Component {
           required
           type="text"
           name="name"
-          placeholder="name"
+          className="name"
+          placeholder="Jacky?"
           onChange={this.handleChange}
           value={this.state.name}
         />
+        <label for="length">
+          {this.state.length ? this.state.length + " cm" : "length"}
+        </label>
         <input
           required
           type="range"
+          min="40.00"
+          max="65.00"
+          step="0.1"
           name="length"
           placeholder="length"
           onChange={this.handleChange}
           value={this.state.height}
         />
+        <label for="weight">
+          {this.state.weight ? this.state.weight + " kg" : "weight"}
+        </label>
         <input
           required
           type="range"
+          min="2.00"
+          max="5.00"
+          step="0.01"
           name="weight"
           placeholder="weight"
           onChange={this.handleChange}
@@ -76,7 +102,9 @@ export default class Form extends Component {
           required
           type="number"
           name="houseNumber"
-          placeholder="house number"
+          min="0"
+          max="1000"
+          placeholder="number"
           onChange={this.handleChange}
           value={this.state.houseNumber}
         />
@@ -99,7 +127,7 @@ export default class Form extends Component {
           value={this.state.userName}
         />
 
-        <Button content="Submit" />
+        <Button onClick={this.handleSubmit} content="Submit" />
       </div>
     );
   }

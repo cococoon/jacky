@@ -34,7 +34,7 @@ export default class Graphic extends Component {
 Created by potrace 1.15, written by Peter Selinger 2001-2017
 </metadata>
 <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-fill="none" stroke="#dcbe60" stroke-width="5">
+fill="none" stroke="#dcbe60" strokeWidth="10">
 <path d="M8230 12759 c-47 -48 -51 -80 -19 -146 23 -47 34 -53 44 -23 9 27 34
 25 39 -2 3 -13 7 -62 10 -110 6 -102 16 -125 62 -144 19 -8 35 -20 35 -27 1
 -6 2 -25 3 -41 1 -41 24 -44 40 -4 l15 33 19 -45 c25 -54 45 -155 40 -195 -2

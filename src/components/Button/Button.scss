@@ -1,0 +1,27 @@
+@import "../../style/scss/variables";
+
+button {
+  display: inline-block;
+  justify-self: center;
+  align-self: center;
+
+  font-size: $font-size;
+
+  padding: 10px 20px;
+  margin-top: 0.5rem;
+
+  border: 2px solid $main-color;
+  color: $white;
+  background: $main-color;
+
+  transition: 0.2s ease;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    background-color: $main-color;
+    color: $white;
+
+    box-shadow: 0 3px 10px $dark;
+  }
+}

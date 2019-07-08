@@ -1,0 +1,46 @@
+@import "../../style/scss/variables";
+
+.card-container {
+  position: sticky;
+
+  z-index: 10;
+  max-width: 960px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  //   styling
+  background-color: $red;
+  box-shadow: 10px 5px 20px $dark;
+  border: 20px solid $yellow;
+
+  //   on small screens take 90% of width
+  width: 90%;
+  //on large screens take 500px wide card
+  @media screen and (min-width: $breakpoint-mobile) {
+    width: 500px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    //THIS WILL VERTICALLY CENTER THE CONTENT
+    // justify-content: center;
+    text-align: center;
+
+    width: 100%;
+    min-height: 80vh;
+
+    h1 {
+      font-family: $lobster;
+      // font-family: $paint;
+      // font-family: $marker;
+      font-size: 84px;
+
+      color: $yellow;
+    }
+  }
+}

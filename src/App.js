@@ -1,19 +1,23 @@
 import React from "react";
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import "./App.scss";
 
-import Card from "./components/Card/Card";
 import Graphic from "./components/Graphic/Graphic";
-import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home";
+import Thanks from "./pages/Thanks";
+import PageNotFound from "./pages/404";
 
 function App() {
   return (
     <div className="App">
-      {/* <header>
-        <p style={{ margin: "0", padding: "0" }}>&nbsp;</p>
-      </header> */}
-      <Card />
-      <Graphic />
-      <Footer />
+      <Router>
+        <Graphic />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/thanks" component={Thanks} />
+        <Route exact path="/404" component={PageNotFound} />
+      </Router>
     </div>
   );
 }

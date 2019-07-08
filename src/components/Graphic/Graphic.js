@@ -1,33 +1,31 @@
-import React, { Component } from 'react'
-import anime from "animejs"
+import React, { Component } from "react";
+import anime from "animejs";
 
-import './Graphic.scss';
+import "./Graphic.scss";
 
 export default class Graphic extends Component {
+  componentDidMount() {
+    anime({
+      targets: "path",
+      strokeDashoffset: [anime.setDashoffset, 0],
+      easing: "easeInOutSine",
+      duration: 2000,
+      delay: function(el, i) {
+        return i * 500;
+      },
+      direction: "alternate",
+      loop: false
+    });
+  }
 
-    componentDidMount(){
-        anime({
-            targets: "path",
-            strokeDashoffset: [anime.setDashoffset, 0],
-            easing: "easeInOutSine",
-            duration: 2000,
-            delay: function(el, i) {
-              return i * 500;
-            },
-            direction: "alternate",
-            loop: false
-        })
-    }
+  componentWillUnmount() {
+    anime.remove("anime");
+  }
 
-    componentWillUnmount(){
-        anime.remove('anime');
-    }
-
-
-    render() {
-        return (
-            <div className="background-wrapper">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+  render() {
+    return (
+      <div className="background-wrapper">
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="964.000000pt" height="1280.000000pt" viewBox="0 0 964.000000 1280.000000"
  preserveAspectRatio="xMidYMid meet">
 <metadata>
@@ -637,8 +635,7 @@ m-556 -1972 c0 -12 -4 -25 -10 -28 -6 -4 -10 11 -10 37 0 31 3 39 10 28 5 -8
 -8z"/>
 </g>
 </svg>
-
-            </div>
-        )
-    }
+      </div>
+    );
+  }
 }

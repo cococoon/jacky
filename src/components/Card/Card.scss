@@ -1,8 +1,7 @@
 @import "../../style/scss/variables";
 
 .card-container {
-  position: sticky;
-
+  margin: 20px auto;
   z-index: 10;
   max-width: 960px;
   width: 100%;
@@ -13,7 +12,7 @@
 
   //   styling
   background-color: $red;
-  box-shadow: 10px 5px 20px $dark;
+  box-shadow: 10px 15px 20px $dark;
   border: 20px solid $yellow;
 
   //   on small screens take 90% of width

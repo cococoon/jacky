@@ -4,7 +4,7 @@ import "./Button.scss";
 export default function Button(props) {
   return (
     <div>
-      <button onClick={props.onClick} className="btn">
+      <button onSubmit={props.onSubmit} className="btn">
         {props.content}
       </button>
     </div>

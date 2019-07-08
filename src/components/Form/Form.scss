@@ -1,50 +1,90 @@
 @import "../../style/scss/variables";
 
+h2 {
+  font-family: $oxygen;
+  font-size: calc(0.5rem + 2vmin);
+}
+
 input {
-  display: block;
-  align-self: center;
-  justify-self: center;
+  display: inline-block;
+  margin: 10px auto;
 
   font-family: $oxygen;
-  font-size: 1.3rem;
+  font-size: calc(0.5rem + 2vmin);
 
   border: none;
   border-bottom: 2px solid $main-color;
-  color: $main-color;
+  // color: $main-color;
+  color: #000;
   background-color: transparent;
 
   text-align: center;
 
-  width: 90%;
   padding: 10px;
-  margin: 10px auto;
+  width: 90%;
 
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: $main-color;
+    // color: $main-color;
+    color: #000;
     opacity: 1; /* Firefox */
   }
 
   &:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: $main-color;
+    // color: $main-color;
+    color: #000;
   }
 
   &::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: $main-color;
+    // color: $main-color;
+    color: #000;
+  }
+
+  //TEXT INPUTS
+  &[type="text"] {
+    width: 45%;
+  }
+
+  //NUMBER INPUTS
+  &[type="number"] {
+    width: 30%;
+  }
+
+  &[type="range"] {
+    display: block;
+    margin: 10px auto;
   }
 
   // NAME INPUT AT TOP
   &[name="name"] {
+    width: 90%;
+    display: block;
     border: none;
     background-color: transparent;
     color: $yellow;
-    font-size: 5rem;
+    font-size: calc(1rem + 8vmin);
     font-family: $lobster;
 
     margin-bottom: 60px;
     padding-bottom: 5px;
+
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $yellow;
+      opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: $yellow;
+    }
+
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: $yellow;
+    }
 
     &:focus,
     &:active {
@@ -54,19 +94,18 @@ input {
     }
   }
 
+  //DESKTOP SETTINGS
   @media screen and (min-width: $breakpoint-mobile) {
-  }
+    margin: 10px 5px;
 
-  &[type="range"] {
-    margin-top: 0;
-    // padding-top: 0;
+    outline: none;
   }
 }
 
 label {
   font-family: $lobster;
   color: $main-color;
-  font-size: 2rem;
+  font-size: calc(1rem + 4vmin);
   margin-bottom: 0;
   padding-bottom: 0;
 }

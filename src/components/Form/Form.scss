@@ -8,31 +8,53 @@ input {
   font-family: $oxygen;
   font-size: 1.3rem;
 
-  border: 2px solid $main-color;
-  background-color: $white;
-  color: $dark;
+  border: none;
+  border-bottom: 2px solid $main-color;
+  color: $main-color;
+  background-color: transparent;
 
   text-align: center;
 
+  width: 90%;
   padding: 10px;
   margin: 10px auto;
 
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $main-color;
+    opacity: 1; /* Firefox */
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $main-color;
+  }
+
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $main-color;
+  }
+
   // NAME INPUT AT TOP
-  .name {
+  &[name="name"] {
+    border: none;
     background-color: transparent;
     color: $yellow;
-    font-size: 10rem;
+    font-size: 5rem;
     font-family: $lobster;
 
-    &:hover,
+    margin-bottom: 60px;
+    padding-bottom: 5px;
+
+    &:focus,
     &:active {
       transition: 0.5s ease;
+      outline: none;
       border-bottom: 3px solid $yellow;
     }
   }
 
   @media screen and (min-width: $breakpoint-mobile) {
-    width: 90%;
   }
 
   &[type="range"] {

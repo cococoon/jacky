@@ -39,6 +39,7 @@ export default class Form extends Component {
           name="name"
           className="name"
           placeholder="Jacky?"
+          autocomplete="off"
           onChange={this.handleChange}
           value={this.state.name}
         />
@@ -121,10 +122,10 @@ export default class Form extends Component {
         <input
           required
           type="text"
-          name="userName"
-          placeholder="your name"
+          name="city"
+          placeholder="city"
           onChange={this.handleChange}
-          value={this.state.userName}
+          value={this.state.city}
         />
 
         <Button onClick={this.handleSubmit} content="Submit" />

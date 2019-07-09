@@ -1,7 +1,8 @@
 @import "../../style/scss/variables";
 
 h2 {
-  font-family: $oxygen;
+  // font-family: $oxygen;
+  font-family: $comingsoon;
   font-size: calc(0.5rem + 2vmin);
 }
 
@@ -9,8 +10,9 @@ input {
   display: inline-block;
   margin: 10px auto;
 
-  font-family: $oxygen;
-  font-size: calc(0.5rem + 2vmin);
+  font-family: $comingsoon;
+  // font-family: $oxygen;
+  font-size: calc(0.3rem + 2vmin);
 
   border: none;
   border-bottom: 2px solid $main-color;
@@ -52,8 +54,10 @@ input {
     width: 30%;
   }
 
+  //RANGE INPUTS
   &[type="range"] {
     display: block;
+    width: 50%;
     margin: 10px auto;
   }
 

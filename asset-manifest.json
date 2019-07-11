@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/jacky/static/css/main.74af5dc0.chunk.css",
+    "main.css": "/jacky/static/css/main.8998e1f6.chunk.css",
     "main.js": "/jacky/static/js/main.c2cc89c7.chunk.js",
     "main.js.map": "/jacky/static/js/main.c2cc89c7.chunk.js.map",
     "runtime~main.js": "/jacky/static/js/runtime~main.3b750834.js",
@@ -8,8 +8,8 @@
     "static/js/2.d509799a.chunk.js": "/jacky/static/js/2.d509799a.chunk.js",
     "static/js/2.d509799a.chunk.js.map": "/jacky/static/js/2.d509799a.chunk.js.map",
     "index.html": "/jacky/index.html",
-    "precache-manifest.1d624ea7c66332f5944d21e7221617f9.js": "/jacky/precache-manifest.1d624ea7c66332f5944d21e7221617f9.js",
+    "precache-manifest.91ae183e2d5e3944c4442a8cc36a9fe9.js": "/jacky/precache-manifest.91ae183e2d5e3944c4442a8cc36a9fe9.js",
     "service-worker.js": "/jacky/service-worker.js",
-    "static/css/main.74af5dc0.chunk.css.map": "/jacky/static/css/main.74af5dc0.chunk.css.map"
+    "static/css/main.8998e1f6.chunk.css.map": "/jacky/static/css/main.8998e1f6.chunk.css.map"
   }
 }

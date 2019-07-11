@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { BASEURL } from "../../config/api";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as yup from "yup";
 // import Button from "../Button/Button";
 
 import "./Form.scss";
 import "../Button/Button.scss";
 
-export default class Form extends Component {
+export default class CardForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,9 +29,26 @@ export default class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    this.setState({
-      submitted: true
-    });
+
+    fetch(`${BASEURL}/submit`, {
+      method: "POST",
+      body: JSON.stringify(this.state),
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(response => {
+        console.log(response);
+
+        this.setState({
+          submitted: false
+        });
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -36,7 +56,7 @@ export default class Form extends Component {
       return <Redirect to="/thanks" />;
     } else {
       return (
-        <form onSubmit={this.handleSubmit}>
+        <form autoComplete="off" onSubmit={this.handleSubmit}>
           <h2>Guess my name</h2>
           <input
             required
@@ -48,7 +68,7 @@ export default class Form extends Component {
             value={this.state.name}
           />
           <h2>How tall will {this.state.name} be?</h2>
-          <label for="length">
+          <label htmlFor="length">
             {this.state.length ? this.state.length + " cm" : "length"}
           </label>
           <input
@@ -64,7 +84,7 @@ export default class Form extends Component {
             value={this.state.height}
           />
           <h2>How much will {this.state.name} weigh?</h2>
-          <label for="weight">
+          <label htmlFor="weight">
             {this.state.weight ? this.state.weight + " kg" : "weight"}
           </label>
           <input
@@ -89,7 +109,6 @@ export default class Form extends Component {
             onChange={this.handleChange}
             value={this.state.firstName}
           />
-
           <input
             required
             autoComplete="off"
@@ -99,7 +118,6 @@ export default class Form extends Component {
             onChange={this.handleChange}
             value={this.state.lastName}
           />
-
           <input
             required
             type="email"
@@ -109,7 +127,6 @@ export default class Form extends Component {
             onChange={this.handleChange}
             value={this.state.email}
           />
-
           <input
             required
             autoComplete="off"
@@ -119,7 +136,6 @@ export default class Form extends Component {
             onChange={this.handleChange}
             value={this.state.street}
           />
-
           <input
             required
             autoComplete="off"
@@ -131,7 +147,6 @@ export default class Form extends Component {
             onChange={this.handleChange}
             value={this.state.houseNumber}
           />
-
           <input
             required
             autoComplete="off"
@@ -141,7 +156,6 @@ export default class Form extends Component {
             onChange={this.handleChange}
             value={this.state.city}
           />
-
           <input
             required
             min="1"
@@ -153,7 +167,6 @@ export default class Form extends Component {
             onChange={this.handleChange}
             value={this.state.postalCode}
           />
-
           <button
             type="submit"
             style={{ display: "block", margin: "40px auto 0" }}
@@ -163,6 +176,51 @@ export default class Form extends Component {
           </button>
         </form>
       );
+      // return (
+      //   <Formik
+      //     initialValues={{
+      //       name: "Jacky",
+      //       length: "",
+      //       weight: "",
+      //       firstName: "",
+      //       lastName: "",
+      //       email: "",
+      //       street: "",
+      //       houseNumber: "",
+      //       city: "",
+      //       postalCode: ""
+      //     }}
+      //     onSubmit={(values, actions) => {
+      //       fetch(`${BASEURL}/submit`, {
+      //         method: "POST",
+      //         body: JSON.stringify(this.state),
+      //         mode: "cors",
+      //         headers: {
+      //           "Content-Type": "application/json"
+      //         }
+      //       })
+      //         .then(response => {
+      //           return response.json();
+      //         })
+      //         .then(response => {
+      //           actions.setSubmitting(false);
+      //           this.setState({
+      //             submitted: true
+      //           });
+      //         })
+      //         .catch(err => {
+      //           actions.setSubmitting(false);
+      //           actions.setErrors(err.json());
+      //         });
+      //     }}
+      //     render={({ errors, status, touched, isSubmitting }) => (
+      //       <Form>
+      //         <Field type="text" name="name" />
+      //         <ErrorMessage name="name" component="div" />
+      //       </Form>
+      //     )}
+      //   />
+      // );
     }
   }
 }

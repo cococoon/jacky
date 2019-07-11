@@ -2,7 +2,8 @@
 
 .card-container {
   margin: 20px auto;
-  z-index: 10;
+  position: relative;
+  z-index: 30;
   width: 100%;
   padding: 20px;
   display: flex;

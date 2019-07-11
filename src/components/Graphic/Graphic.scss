@@ -2,19 +2,14 @@
 
 .background-wrapper {
   width: 100%;
+  max-height: 100%;
   position: absolute;
   overflow: hidden;
   top: 0;
   left: 0;
-  z-index: -999;
+  z-index: 0;
 
   svg {
-    width: 100%;
+    width: 90%;
   }
-
-  background: linear-gradient(
-    to top right,
-    $background-color,
-    $background-color2
-  );
 }

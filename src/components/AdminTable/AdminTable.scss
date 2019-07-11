@@ -1,0 +1,29 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 960px;
+  background-color: #fff;
+  margin: 20px auto;
+  font-size: 0.9rem;
+
+  .table-row {
+    display: flex;
+    flex-direction: row;
+
+    .table-cell {
+      padding: 5px 10px;
+      border: 1px solid black;
+    }
+  }
+}
+
+.btn-delete {
+  border: 1px solid red;
+  background-color: red;
+  color: #fff;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

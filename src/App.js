@@ -1,28 +1,49 @@
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, NavLink as Link } from "react-router-dom";
 
 import "./App.scss";
 
+/**IMPORT COMPONENTS */
 import Graphic from "./components/Graphic/Graphic";
+import Footer from "./components/Footer/Footer";
+
+/**IMPORT PAGES */
 import Home from "./pages/Home";
 import Thanks from "./pages/Thanks";
+import Admin from "./pages/Admin";
 import PageNotFound from "./pages/404";
-import Error from "./pages/Error";
+import ErrorComponent from "./pages/Error";
 
 export default class App extends Component {
-  constructor(props) {}
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
   render() {
     return (
       <div className="App">
-        <Router>
-          <Graphic />
+        <Graphic />
+        <Router style={{ zIndex: "20" }}>
           <Route exact path="/" component={Home} />
           <Route exact path="/thanks" component={Thanks} />
+          <Route exact path="/admin" component={Admin} />
           <Route exact path="/404" component={PageNotFound} />
-          <Route exact path="/error" component={Error} />
+          <Route exact path="/error" component={ErrorComponent} />
+          <div style={{ zIndex: 20, display: "flex" }}>
+            <p>
+              <Link to="/admin">ADMIN</Link>
+            </p>
+            <p>
+              <Link to="/">CARD</Link>
+            </p>
+            <p>
+              <Link to="/thanks">THANKS</Link>
+            </p>
+          </div>
         </Router>
+        <Footer />
       </div>
     );
   }

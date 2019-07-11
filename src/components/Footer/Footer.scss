@@ -1,6 +1,7 @@
 @import "../../style/scss/variables";
 
 footer {
+  z-index: 10;
   width: 100%;
   text-align: center;
   position: relative;
@@ -14,7 +15,7 @@ footer {
 
   p {
     display: inline-block;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: $yellow;
   }
 }

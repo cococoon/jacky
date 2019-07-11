@@ -1,12 +1,12 @@
 import React from "react";
 import "./Card.scss";
-import Form from "../Form/Form";
+import Former from "../Form/Former";
 
 export default function Card() {
   return (
     <div className="card-container">
       <div className="card">
-        <Form />
+        <Former />
       </div>
     </div>
   );

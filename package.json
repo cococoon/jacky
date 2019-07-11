@@ -2,6 +2,7 @@
   "name": "jacky",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://cococoon.github.io/jacky",
   "dependencies": {
     "animejs": "^3.0.1",
     "formik": "^1.5.7",
@@ -10,10 +11,13 @@
     "react-dom": "^16.8.6",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

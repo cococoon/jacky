@@ -6,6 +6,8 @@ import "./App.scss";
 
 /**IMPORT COMPONENTS */
 import Footer from "./components/Footer/Footer";
+import Loader from "./components/Loader/Loader";
+
 /**IMPORT PAGES */
 import Home from "./pages/Home";
 import Thanks from "./pages/Thanks";

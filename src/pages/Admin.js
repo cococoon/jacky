@@ -10,44 +10,6 @@ export default class Admin extends Component {
     super(props);
     this.state = {
       isLoaded: false
-      // guesses: [
-      //   {
-      //     name: "Koen",
-      //     firstName: "Koen",
-      //     lastName: "Koen",
-      //     email: "koen@koen.com",
-      //     length: "50.00",
-      //     weight: "3.50",
-      //     street: "nowhere street",
-      //     houseNumber: "5",
-      //     city: "nowhere",
-      //     postalCode: "2000"
-      //   },
-      //   {
-      //     name: "Koen",
-      //     firstName: "Koen",
-      //     lastName: "Koen",
-      //     email: "koen@koen.com",
-      //     length: "50.00",
-      //     weight: "3.50",
-      //     street: "nowhere street",
-      //     houseNumber: "5",
-      //     city: "nowhere",
-      //     postalCode: "2000"
-      //   },
-      //   {
-      //     name: "Koen",
-      //     firstName: "Koen",
-      //     lastName: "Koen",
-      //     email: "koen@koen.com",
-      //     length: "50.00",
-      //     weight: "3.50",
-      //     street: "nowhere street",
-      //     houseNumber: "5",
-      //     city: "nowhere",
-      //     postalCode: "2000"
-      //   }
-      // ]
     };
   }
 
@@ -82,7 +44,10 @@ export default class Admin extends Component {
       return (
         <div style={{ zIndex: 20 }}>
           <h2 style={{ textAlign: "center" }}>All Guesses</h2>
-          <AdminTable guesses={this.state.guesses} />
+          <AdminTable
+            handleDelete={this.handleDelete}
+            guesses={this.state.guesses}
+          />
         </div>
       );
     }

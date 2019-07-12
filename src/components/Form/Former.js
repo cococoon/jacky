@@ -44,7 +44,7 @@ export default class Former extends Component {
         console.log(response);
 
         this.setState({
-          submitted: false
+          submitted: true
         });
       })
       .catch(err => console.log(err));

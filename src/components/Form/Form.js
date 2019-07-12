@@ -15,8 +15,6 @@ export default class CardForm extends Component {
       name: "Jacky",
       submitted: false
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = e => {
@@ -45,7 +43,7 @@ export default class CardForm extends Component {
         console.log(response);
 
         this.setState({
-          submitted: false
+          submitted: true
         });
       })
       .catch(err => console.log(err));

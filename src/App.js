@@ -5,9 +5,7 @@ import { HashRouter as Router, Route, NavLink as Link } from "react-router-dom";
 import "./App.scss";
 
 /**IMPORT COMPONENTS */
-import Graphic from "./components/Graphic/Graphic";
 import Footer from "./components/Footer/Footer";
-
 /**IMPORT PAGES */
 import Home from "./pages/Home";
 import Thanks from "./pages/Thanks";
@@ -24,7 +22,6 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Graphic /> */}
         <Router style={{ zIndex: "20" }}>
           <Route exact path="/" component={Home} />
           <Route exact path="/thanks" component={Thanks} />
@@ -32,13 +29,13 @@ export default class App extends Component {
           <Route exact path="/404" component={PageNotFound} />
           <Route exact path="/error" component={ErrorComponent} />
           <div style={{ zIndex: 20, display: "flex" }}>
-            <p>
+            <p style={{ margin: "20px" }}>
               <Link to="/admin">ADMIN</Link>
             </p>
-            <p>
+            <p style={{ margin: "20px" }}>
               <Link to="/">CARD</Link>
             </p>
-            <p>
+            <p style={{ margin: "20px" }}>
               <Link to="/thanks">THANKS</Link>
             </p>
           </div>

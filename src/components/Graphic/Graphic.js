@@ -11,9 +11,11 @@ export default class Graphic extends Component {
     };
   }
 
+  animation;
+
   componentDidMount() {
     if (!this.state.isLoaded) {
-      anime({
+      this.animation = anime({
         targets: "path",
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: "easeInOutSine",
@@ -31,7 +33,7 @@ export default class Graphic extends Component {
   }
 
   componentWillUnmount() {
-    anime.remove("anime");
+    anime.remove("animation");
   }
 
   render() {
@@ -40,7 +42,6 @@ export default class Graphic extends Component {
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
-          //width="964.000000pt" height="1280.000000pt"
           viewBox="0 0 964.000000 1280.000000"
           preserveAspectRatio="xMidYMid meet"
         >

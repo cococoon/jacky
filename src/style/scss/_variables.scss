@@ -5,15 +5,25 @@ $breakpoint-mobile: 601px;
 
 //COLOR
 $white: #ffffff;
-$yellow: #dcbe60;
-$red: #dc607e;
+
+$yellow-old: #dcbe60;
+$red-old: #dc607e;
 $dark: #242424;
+$pastel-blue: #b7dcf4;
+$pastel-red: #f8c3b9;
+$pastel-yellow: #fbeaa5;
+$turquoise: #ace9dd;
+$pastel-purple: #ddc6e7;
+$pastel-grey: #b9c0c9;
+$pastel-white: #fafcfc;
+$yellow: $pastel-yellow;
+$red: $pastel-red;
 
 $main-color: #2b50c5;
 $secondary-color: #607edc;
 
-$background-color: #2b50c5;
-$background-color2: #607edc;
+$background-color: $pastel-blue;
+$background-color2: $pastel-white;
 
 $text-color: #242424;
 

@@ -17,7 +17,7 @@ export default class Graphic extends Component {
         targets: "path",
         strokeDashoffset: [anime.setDashoffset, 0],
         easing: "easeInOutSine",
-        duration: 2000,
+        duration: 1000,
         delay: function(el, i) {
           return i * 500;
         },

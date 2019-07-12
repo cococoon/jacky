@@ -2,8 +2,8 @@
 
 .card-container {
   margin: 20px auto;
-  position: relative;
-  z-index: 30;
+
+  z-index: -10;
   width: 100%;
   padding: 20px;
   display: flex;
@@ -11,7 +11,7 @@
   align-items: center;
 
   //   styling
-  background-color: $red;
+  background-color: $pastel-white;
   box-shadow: 10px 15px 20px $dark;
   border: 20px solid $yellow;
 
@@ -24,9 +24,11 @@
   }
 
   .card {
+    z-index: 50;
     display: flex;
     flex-direction: column;
     align-content: center;
+    position: relative;
     //THIS WILL VERTICALLY CENTER THE CONTENT
     // justify-content: center;
     text-align: center;
@@ -40,7 +42,7 @@
       // font-family: $marker;
       font-size: 84px;
 
-      color: $yellow;
+      color: $yellow-old;
     }
   }
 }

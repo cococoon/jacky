@@ -24,7 +24,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Graphic />
+        {/* <Graphic /> */}
         <Router style={{ zIndex: "20" }}>
           <Route exact path="/" component={Home} />
           <Route exact path="/thanks" component={Thanks} />

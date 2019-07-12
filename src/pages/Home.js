@@ -3,7 +3,6 @@ import React from "react";
 // import "./Home.scss";
 
 import Card from "../components/Card/Card";
-import Footer from "../components/Footer/Footer";
 
 function Home() {
   return (

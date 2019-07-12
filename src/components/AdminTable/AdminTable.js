@@ -5,14 +5,9 @@ import "./AdminTable.scss";
 export default function AdminTable(props) {
   return (
     <div className="table-container">
-      {props.guesses.map((guess, index) => {
-        console.log(guess.firstName);
+      {props.guesses.map(guess => {
         return (
-          <div
-            //   key={guess._id}
-            key={index}
-            className="table-row"
-          >
+          <div key={guess._id} className="table-row">
             <div className="table-cell">{guess.firstName}</div>
             <div className="table-cell">{guess.lastName}</div>
             <div className="table-cell">{guess.email}</div>

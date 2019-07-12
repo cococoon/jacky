@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/jacky/static/css/main.8998e1f6.chunk.css",
-    "main.js": "/jacky/static/js/main.c2cc89c7.chunk.js",
-    "main.js.map": "/jacky/static/js/main.c2cc89c7.chunk.js.map",
+    "main.css": "/jacky/static/css/main.a1489af6.chunk.css",
+    "main.js": "/jacky/static/js/main.29bc22a7.chunk.js",
+    "main.js.map": "/jacky/static/js/main.29bc22a7.chunk.js.map",
     "runtime~main.js": "/jacky/static/js/runtime~main.3b750834.js",
     "runtime~main.js.map": "/jacky/static/js/runtime~main.3b750834.js.map",
     "static/js/2.d509799a.chunk.js": "/jacky/static/js/2.d509799a.chunk.js",
     "static/js/2.d509799a.chunk.js.map": "/jacky/static/js/2.d509799a.chunk.js.map",
     "index.html": "/jacky/index.html",
-    "precache-manifest.91ae183e2d5e3944c4442a8cc36a9fe9.js": "/jacky/precache-manifest.91ae183e2d5e3944c4442a8cc36a9fe9.js",
+    "precache-manifest.76fb289a6ecb4dabe1c6e74639c559ef.js": "/jacky/precache-manifest.76fb289a6ecb4dabe1c6e74639c559ef.js",
     "service-worker.js": "/jacky/service-worker.js",
-    "static/css/main.8998e1f6.chunk.css.map": "/jacky/static/css/main.8998e1f6.chunk.css.map"
+    "static/css/main.a1489af6.chunk.css.map": "/jacky/static/css/main.a1489af6.chunk.css.map"
   }
 }

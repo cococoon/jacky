@@ -13,7 +13,8 @@
   //   styling
   background-color: $pastel-white;
   box-shadow: 10px 15px 20px $dark;
-  border: 20px solid $yellow;
+  border: 20px solid $pastel-red;
+  // border: 20px solid $yellow;
 
   //   on small screens take 90% of width
   width: 90%;
@@ -37,9 +38,8 @@
     min-height: 80vh;
 
     h1 {
-      font-family: $lobster;
-      // font-family: $paint;
-      // font-family: $marker;
+      font-family: $amatic;
+      // font-family: $lobster;
       font-size: 84px;
 
       color: $yellow-old;

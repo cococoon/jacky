@@ -70,10 +70,9 @@ input {
     background-color: transparent;
     color: $yellow;
     font-size: calc(1rem + 8vmin);
-    font-family: $lobster;
-
-    // margin-bottom: 60px;
-    // padding-bottom: 5px;
+    font-family: $amatic;
+    font-weight: bold;
+    // font-family: $lobster;
 
     &::placeholder {
       /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -101,7 +100,8 @@ input {
 }
 
 label {
-  font-family: $lobster;
+  font-family: $amatic;
+  // font-family: $lobster;
   color: $main-color;
   font-size: calc(1rem + 4vmin);
   margin-bottom: 0;

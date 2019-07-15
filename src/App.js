@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import {
   // BrowserRouter may not work as expected
-  // HashRouter as Router,
+  HashRouter as Router,
   // BrowserRouter as Router,
   Route,
   Redirect,

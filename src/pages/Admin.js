@@ -34,6 +34,14 @@ export default class Admin extends Component {
   }
 
   handleDelete = id => {
+    fetch(`${BASEURL}/guess`, {
+      method: "delete",
+      body: JSON.stringify({ id: id }),
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": sessionStorage.getItem("token")
+      }
+    });
     let guesses = this.state.guesses.filter(guess => {
       if (id !== guess._id) {
         return guess;

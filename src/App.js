@@ -49,7 +49,7 @@ export default class App extends Component {
         }
       })
         .then(res => res.json)
-        .then(res => this.setState({ auth: true }))
+        .then(res => this.setState({ auth: res.auth }))
         //if incorrect token remove the token
         .catch(err => sessionStorage.removeItem("token"));
     }

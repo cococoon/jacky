@@ -16,31 +16,6 @@ export default class Login extends Component {
     });
   };
 
-  // componentDidMount() {
-  //   let token = sessionStorage.getItem("token");
-  //   if (token) {
-  //     //if token is already set, try to authenticate the user
-  //     fetch(`${BASEURL}/auth`, {
-  //       method: "get",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         "x-access-token": token
-  //       }
-  //     })
-  //       .then(res => {
-  //         return res.json();
-  //       })
-  //       .then(res => {
-  //         this.setState({
-  //           isAuth: true
-  //         });
-  //       })
-  //       .catch(err => {
-  //         sessionStorage.removeItem("token");
-  //       });
-  //   }
-  // }
-
   render() {
     return (
       <Formik>

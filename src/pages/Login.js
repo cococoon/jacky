@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
-import { BASEURL } from "../config/api";
 
 export default class Login extends Component {
   constructor(props) {
@@ -28,18 +27,24 @@ export default class Login extends Component {
             }}
           >
             <Field
+              style={{ display: "block", width: "100%" }}
               type="text"
               placeholder="username"
               name="username"
               onChange={this.handleChange}
             />
             <Field
+              style={{ display: "block", width: "100%" }}
               type="password"
               placeholder="password"
               name="pw"
               onChange={this.handleChange}
             />
-            <button className="btn" type="submit">
+            <button
+              style={{ display: "block", width: "100%" }}
+              className="btn"
+              type="submit"
+            >
               Login
             </button>
             {this.props.error && (

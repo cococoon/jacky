@@ -4,9 +4,12 @@ footer {
   z-index: 10;
   width: 100%;
   text-align: center;
-  position: relative;
-  bottom: 0;
-  left: 0;
+  display: block;
+  // position: relative;
+  // bottom: 0;
+  // left: 0;
+  justify-self: end;
+  align-self: flex-end;
 
   a {
     text-decoration: underline;

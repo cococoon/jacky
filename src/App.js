@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
 import {
-  HashRouter as Router,
+  // BrowserRouter may not work as expected
+  // HashRouter as Router,
+  // BrowserRouter as Router,
   Route,
   Redirect,
+  Switch,
   NavLink as Link
 } from "react-router-dom";
 
@@ -13,7 +16,7 @@ import { BASEURL } from "./config/api";
 
 /**IMPORT COMPONENTS */
 import Footer from "./components/Footer/Footer";
-import Loader from "./components/Loader/Loader";
+// import Loader from "./components/Loader/Loader";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 /**IMPORT PAGES */
@@ -83,7 +86,11 @@ export default class App extends Component {
           this.setState({ auth: true });
         }
       })
-      .catch(err => console.log("error logging in", err));
+      .catch(err =>
+        this.setState({
+          wrong: true
+        })
+      );
   };
 
   handleLogout = e => {
@@ -97,49 +104,42 @@ export default class App extends Component {
     return (
       <div className="App">
         <Router style={{ zIndex: "20" }}>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/thanks" component={Thanks} />
-          <ProtectedRoute
-            exact
-            path="/admin"
-            auth={this.state.auth}
-            component={Admin}
-          />
-          <Route
-            exact
-            path="/login"
-            render={props => {
-              if (!this.state.auth) {
-                return (
-                  <Login error={this.state.wrong} login={this.handleLogin} />
-                );
-              } else {
-                return <Redirect to="/admin" />;
-              }
-            }}
-          />
-          <Route exact path="/404" component={PageNotFound} />
-          <Route exact path="/error" component={ErrorComponent} />
-          <div style={{ zIndex: 20, display: "flex" }}>
-            <p style={{ margin: "20px" }}>
-              <Link to="/admin">ADMIN</Link>
-            </p>
-            <p style={{ margin: "20px" }}>
-              <Link to="/">CARD</Link>
-            </p>
-            <p style={{ margin: "20px" }}>
-              <Link to="/thanks">THANKS</Link>
-            </p>
-            {this.state.auth && (
-              <p>
-                <button className="btn" onClick={this.handleLogout}>
-                  Log out
-                </button>
-              </p>
-            )}
-          </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/thanks" component={Thanks} />
+            <ProtectedRoute
+              exact
+              path="/admin"
+              auth={this.state.auth}
+              component={Admin}
+            />
+            <Route
+              exact
+              path="/login"
+              render={props => {
+                if (!this.state.auth) {
+                  return (
+                    <Login error={this.state.wrong} login={this.handleLogin} />
+                  );
+                } else {
+                  return <Redirect to="/admin" />;
+                }
+              }}
+            />
+            <Route component={PageNotFound} />
+            <Route exact path="/error" component={ErrorComponent} />
+            <div style={{ zIndex: 20, display: "flex" }}>
+              {this.state.auth && (
+                <p>
+                  <button className="btn" onClick={this.handleLogout}>
+                    Log out
+                  </button>
+                </p>
+              )}
+            </div>
+          </Switch>
         </Router>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

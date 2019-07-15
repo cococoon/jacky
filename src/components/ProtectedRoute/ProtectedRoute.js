@@ -6,7 +6,6 @@ export default function ProtectedRoute({
   component: Component,
   ...rest
 }) {
-  console.log({ ...rest });
   return (
     <Route
       {...rest}

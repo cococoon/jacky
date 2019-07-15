@@ -115,7 +115,6 @@ export default class Former extends Component {
                 max="65.00"
                 step="0.1"
                 name="length"
-                placeholder="length"
                 onChange={this.handleChange}
                 value={this.state.height}
               />
@@ -131,7 +130,6 @@ export default class Former extends Component {
                 max="5.00"
                 step="0.01"
                 name="weight"
-                placeholder="weight"
                 onChange={this.handleChange}
                 value={this.state.weight}
               />

@@ -16,28 +16,30 @@ export default class Login extends Component {
     });
   };
 
-  componentDidMount() {
-    let token = sessionStorage.getItem("token");
-    if (token) {
-      //if token is already set, try to authenticate the user
-      fetch(`${BASEURL}/auth`, {
-        method: "post",
-        body: token,
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-        .then(res => res.json())
-        .then(res => {
-          this.setState({
-            isAuth: true
-          });
-        })
-        .catch(err => {
-          sessionStorage.removeItem("token");
-        });
-    }
-  }
+  // componentDidMount() {
+  //   let token = sessionStorage.getItem("token");
+  //   if (token) {
+  //     //if token is already set, try to authenticate the user
+  //     fetch(`${BASEURL}/auth`, {
+  //       method: "get",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "x-access-token": token
+  //       }
+  //     })
+  //       .then(res => {
+  //         return res.json();
+  //       })
+  //       .then(res => {
+  //         this.setState({
+  //           isAuth: true
+  //         });
+  //       })
+  //       .catch(err => {
+  //         sessionStorage.removeItem("token");
+  //       });
+  //   }
+  // }
 
   render() {
     return (
@@ -46,7 +48,6 @@ export default class Login extends Component {
           <Form
             onSubmit={e => {
               e.preventDefault();
-              console.log(this.state);
               const { username, pw } = this.state;
               this.props.login(username, pw);
             }}
@@ -66,6 +67,9 @@ export default class Login extends Component {
             <button className="btn" type="submit">
               Login
             </button>
+            {this.props.error && (
+              <p style={{ color: "red" }}>Wrong username or password</p>
+            )}
           </Form>
         </div>
       </Formik>

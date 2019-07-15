@@ -42,10 +42,10 @@ export default class App extends Component {
     let token = sessionStorage.getItem("token");
     if (token) {
       fetch(`${BASEURL}/auth`, {
-        method: "post",
-        body: token,
+        method: "get",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "x-access-token": token
         }
       })
         .then(res => res.json)
@@ -56,28 +56,37 @@ export default class App extends Component {
   };
 
   handleLogin = (username, pw) => {
-    // TO DO : handle login on server
-    // fetch(`${BASEURL}/login`, {
-    //   method: "post",
-    //   body: {
-    //     username: username,
-    //     password: pw
-    //   }
-    // })
-    //   .then(res => res.json)
-    //   .then(res => {
-    //     sessionStorage.setItem("token", res.data.token);
-    //     this.setState({ auth: true });
-    //   })
-    //   //if incorrect token remove the token
-    //   .catch(err => sessionStorage.removeItem("token"));
-    this.setState({
-      auth: true
-    });
+    fetch(`${BASEURL}/login`, {
+      method: "post",
+      body: JSON.stringify({
+        username: username,
+        password: pw
+      }),
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => {
+        if (res.status === 403) {
+          this.setState({
+            wrong: true
+          });
+          return null;
+        } else {
+          return res.json();
+        }
+      })
+      .then(res => {
+        if (res.auth) {
+          sessionStorage.setItem("token", res.token);
+          this.setState({ auth: true });
+        }
+      })
+      .catch(err => console.log("error logging in", err));
   };
 
   handleLogout = e => {
-    console.log("logging out");
     sessionStorage.removeItem("token");
     this.setState({
       auth: false
@@ -101,7 +110,9 @@ export default class App extends Component {
             path="/login"
             render={props => {
               if (!this.state.auth) {
-                return <Login login={this.handleLogin} />;
+                return (
+                  <Login error={this.state.wrong} login={this.handleLogin} />
+                );
               } else {
                 return <Redirect to="/admin" />;
               }

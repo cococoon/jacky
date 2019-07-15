@@ -58,8 +58,12 @@ input {
   //RANGE INPUTS
   &[type="range"] {
     display: block;
-    width: 50%;
+    width: 90%;
     margin: 10px auto;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+      width: 50%;
+    }
   }
 
   // NAME INPUT AT TOP

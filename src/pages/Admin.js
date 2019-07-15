@@ -15,12 +15,10 @@ export default class Admin extends Component {
 
   componentDidMount() {
     fetch(`${BASEURL}/admin`, {
-      method: "post",
-      // body: {
-      //   token: sessionStorage.getItem("token")
-      // },
+      method: "get",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "x-access-token": sessionStorage.getItem("token")
       }
     })
       .then(res => {
@@ -35,7 +33,18 @@ export default class Admin extends Component {
       .catch(err => console.log(err));
   }
 
-  handleDelete = e => {};
+  handleDelete = id => {
+    let guesses = this.state.guesses.filter(guess => {
+      if (id !== guess._id) {
+        return guess;
+      } else {
+        return false;
+      }
+    });
+    this.setState({
+      guesses: guesses
+    });
+  };
 
   render() {
     if (!this.state.isLoaded) {

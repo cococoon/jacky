@@ -52,7 +52,7 @@ export default class Graphic extends Component {
             transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
             fill="none"
             stroke="#dcbe60"
-            strokeWidth="10"
+            strokeWidth="30"
           >
             <path
               d="M8230 12759 c-47 -48 -51 -80 -19 -146 23 -47 34 -53 44 -23 9 27 34

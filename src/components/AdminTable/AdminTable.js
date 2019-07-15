@@ -19,7 +19,10 @@ export default function AdminTable(props) {
             <div className="table-cell">{guess.length}</div>
             <div className="table-cell">{guess.weight}</div>
             <div className="table-cell">
-              <button className="btn-delete" onClick={props.handleDelete}>
+              <button
+                className="btn-delete"
+                onClick={e => props.handleDelete(guess._id)}
+              >
                 Delete
               </button>
             </div>

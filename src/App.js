@@ -31,17 +31,17 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      auth: false
+      auth: false,
+      isLoading: true
     };
   }
 
   componentDidMount() {
-    if (sessionStorage.getItem("token")) {
-      this.authenticate();
-    }
+    this.authenticate();
   }
 
   authenticate = () => {
+    console.log("called auth");
     let token = sessionStorage.getItem("token");
     if (token) {
       fetch(`${BASEURL}/auth`, {
@@ -51,10 +51,17 @@ export default class App extends Component {
           "x-access-token": token
         }
       })
-        .then(res => res.json)
-        .then(res => this.setState({ auth: res.auth }))
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          console.log(res);
+          this.setState({ auth: res.auth, isLoading: false });
+        })
         //if incorrect token remove the token
         .catch(err => sessionStorage.removeItem("token"));
+    } else {
+      this.setState({ isLoading: false });
     }
   };
 
@@ -101,46 +108,57 @@ export default class App extends Component {
   };
 
   render() {
-    return (
-      <div className="App">
-        <Router style={{ zIndex: "20" }}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/thanks" component={Thanks} />
-            <ProtectedRoute
-              exact
-              path="/admin"
-              auth={this.state.auth}
-              component={Admin}
-            />
-            <Route
-              exact
-              path="/login"
-              render={props => {
-                if (!this.state.auth) {
-                  return (
-                    <Login error={this.state.wrong} login={this.handleLogin} />
-                  );
-                } else {
-                  return <Redirect to="/admin" />;
-                }
-              }}
-            />
-            <Route component={PageNotFound} />
-            <Route exact path="/error" component={ErrorComponent} />
-            <div style={{ zIndex: 20, display: "flex" }}>
-              {this.state.auth && (
-                <p>
-                  <button className="btn" onClick={this.handleLogout}>
-                    Log out
-                  </button>
-                </p>
-              )}
-            </div>
-          </Switch>
-        </Router>
-        {/* <Footer /> */}
-      </div>
-    );
+    if (this.state.isLoading) {
+      return (
+        <div className="App">
+          <p>Loading...</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <Router style={{ zIndex: "20" }}>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/thanks" component={Thanks} />
+              <ProtectedRoute
+                exact
+                path="/admin"
+                auth={this.state.auth}
+                component={Admin}
+              />
+              <Route
+                exact
+                path="/login"
+                render={props => {
+                  if (!this.state.auth) {
+                    return (
+                      <Login
+                        error={this.state.wrong}
+                        login={this.handleLogin}
+                      />
+                    );
+                  } else {
+                    return <Redirect to="/admin" />;
+                  }
+                }}
+              />
+              <Route component={PageNotFound} />
+              <Route exact path="/error" component={ErrorComponent} />
+              <div style={{ zIndex: 20, display: "flex" }}>
+                {this.state.auth && (
+                  <p>
+                    <button className="btn" onClick={this.handleLogout}>
+                      Log out
+                    </button>
+                  </p>
+                )}
+              </div>
+            </Switch>
+          </Router>
+          {/* <Footer /> */}
+        </div>
+      );
+    }
   }
 }

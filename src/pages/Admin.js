@@ -34,6 +34,7 @@ export default class Admin extends Component {
   }
 
   handleDelete = id => {
+    console.log("called");
     fetch(`${BASEURL}/guess`, {
       method: "delete",
       body: JSON.stringify({ id: id }),

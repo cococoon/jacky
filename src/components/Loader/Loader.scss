@@ -1,0 +1,35 @@
+@import "../../style/scss/variables";
+
+.loader-container {
+  display: flex;
+}
+
+.circle {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  padding: 10px;
+  margin: 10px;
+  background-color: $main-color;
+}
+
+.square {
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 10px;
+  margin: 10px;
+  background-color: $main-color;
+}
+
+.triangle {
+  border: 20px solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: none;
+
+  border-bottom-color: $main-color;
+  border-bottom-width: calc(60 * 0.866%);
+  margin: 0;
+}

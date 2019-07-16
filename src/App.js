@@ -10,13 +10,16 @@ import {
   // NavLink as Link
 } from "react-router-dom";
 
+/**IMPORT STYLES */
 import "./App.scss";
+import "./style/scss/_utils.scss";
 
+/**IMPORT CONFIG */
 import { BASEURL } from "./config/api";
 
 /**IMPORT COMPONENTS */
 // import Footer from "./components/Footer/Footer";
-// import Loader from "./components/Loader/Loader";
+import Loader from "./components/Loader/Loader";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 /**IMPORT PAGES */
@@ -41,7 +44,6 @@ export default class App extends Component {
   }
 
   authenticate = () => {
-    console.log("called auth");
     let token = sessionStorage.getItem("token");
     if (token) {
       fetch(`${BASEURL}/auth`, {
@@ -55,7 +57,6 @@ export default class App extends Component {
           return res.json();
         })
         .then(res => {
-          console.log(res);
           this.setState({ auth: res.auth, isLoading: false });
         })
         //if incorrect token remove the token
@@ -78,11 +79,16 @@ export default class App extends Component {
       }
     })
       .then(res => {
-        if (res.status === 403) {
+        if (res) {
+          this.setState({
+            serverError: false
+          });
+        }
+        if (res.status === 401) {
           this.setState({
             wrong: true
           });
-          return null;
+          return (res.auth = false);
         } else {
           return res.json();
         }
@@ -93,11 +99,11 @@ export default class App extends Component {
           this.setState({ auth: true });
         }
       })
-      .catch(err =>
+      .catch(err => {
         this.setState({
-          wrong: true
-        })
-      );
+          serverError: true
+        });
+      });
   };
 
   handleLogout = e => {
@@ -111,7 +117,7 @@ export default class App extends Component {
     if (this.state.isLoading) {
       return (
         <div className="App">
-          <p>Loading...</p>
+          <Loader />
         </div>
       );
     } else {
@@ -119,7 +125,7 @@ export default class App extends Component {
         <div className="App">
           <Router style={{ zIndex: "20" }}>
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact className="fadeIn" path="/" component={Home} />
               <Route exact path="/thanks" component={Thanks} />
               <ProtectedRoute
                 exact
@@ -135,6 +141,7 @@ export default class App extends Component {
                     return (
                       <Login
                         error={this.state.wrong}
+                        servererror={this.state.serverError}
                         login={this.handleLogin}
                       />
                     );

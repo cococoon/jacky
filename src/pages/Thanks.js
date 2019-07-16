@@ -11,7 +11,7 @@ export default class Thanks extends Component {
       easing: "easeInOutSine",
       duration: 3000,
       delay: function(el, i) {
-        return i * 1000;
+        return i * 500;
       },
       direction: "alternate",
       loop: false

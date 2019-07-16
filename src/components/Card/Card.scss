@@ -1,6 +1,10 @@
 @import "../../style/scss/variables";
 
 .card-container {
+  // //rotate card animation
+  // position: relative;
+  // backface-visibility: hidden;
+
   margin: 20px auto;
 
   z-index: -10;
@@ -34,8 +38,28 @@
     // justify-content: center;
     text-align: center;
 
+    // //   styling
+    // background-color: $pastel-white;
+    // box-shadow: 10px 15px 20px $dark;
+    // border: 20px solid $pastel-red;
+    // // border: 20px solid $yellow;
+
     width: 100%;
     min-height: 80vh;
+
+    background-color: $pastel-white;
+
+    // //rotate card animation
+    // transform-style: preserve-3d;
+    // .card-front, .card-back {
+    //   backface-visibility: hidden;
+    // }
+    // .card-back {
+    //   position: abolute;
+    //   top: 0;
+    //   left: 0;
+    //   transform: rotateY(180deg);
+    // }
 
     h1 {
       font-family: $amatic;

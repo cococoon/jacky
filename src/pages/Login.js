@@ -50,6 +50,9 @@ export default class Login extends Component {
             {this.props.error && (
               <p style={{ color: "red" }}>Wrong username or password</p>
             )}
+            {this.props.servererror && (
+              <p style={{ color: "red" }}>404 server not responding</p>
+            )}
           </Form>
         </div>
       </Formik>

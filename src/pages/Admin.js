@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { BASEURL } from "../config/api";
 
 import AdminTable from "../components/AdminTable/AdminTable";
+import Loader from "../components/Loader/Loader";
 
 export default class Admin extends Component {
   constructor(props) {
@@ -57,7 +58,7 @@ export default class Admin extends Component {
 
   render() {
     if (!this.state.isLoaded) {
-      return <p>Loading...</p>;
+      return <Loader />;
     } else {
       return (
         <div style={{ zIndex: 20 }}>

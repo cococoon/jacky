@@ -22,10 +22,11 @@
 
   //   on small screens take 90% of width
   width: 90%;
-  //on large screens take 500px wide card
+  //on large screens take 600px wide card
   @media screen and (min-width: $breakpoint-mobile) {
     width: 50%;
     min-width: 600px;
+    max-width: 960px;
   }
 
   .card {

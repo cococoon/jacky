@@ -2,17 +2,25 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { BASEURL } from "../../config/api";
 import { Formik, Field, Form } from "formik";
+import DatePicker from "react-datepicker";
+
 // import Button from "../Button/Button";
+
+import "react-datepicker/dist/react-datepicker.css";
+// import nl from "date-fns/esm/locale/nl";
 
 import "./Form.scss";
 import "../Button/Button.scss";
+
+// registerLocale("be", nl);
 
 export default class Former extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "Jacky",
-      submitted: false
+      submitted: false,
+      date: new Date(2019, 9, 27)
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +30,12 @@ export default class Former extends Component {
     let value = e.target.value;
     this.setState({
       [e.target.name]: value
+    });
+  };
+
+  handleDateChange = date => {
+    this.setState({
+      date: date
     });
   };
 
@@ -102,6 +116,18 @@ export default class Former extends Component {
                 autoComplete="off"
                 onChange={this.handleChange}
                 value={this.state.name}
+              />
+              <h2>{this.state.name} will be born on</h2>
+              <DatePicker
+                selected={this.state.date}
+                onChange={this.handleDateChange}
+                name="date"
+                dateFormat="dd/MM/yyyy"
+                placeholderText={this.state.date}
+                minDate={new Date(2019, 8, 1)}
+                maxDate={new Date(2019, 10, 29)}
+                className="datepicker"
+                withPortal
               />
               <h2>How tall will {this.state.name} be?</h2>
               <label htmlFor="length">

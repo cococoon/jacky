@@ -98,9 +98,17 @@ input {
   //DESKTOP SETTINGS
   @media screen and (min-width: $breakpoint-mobile) {
     margin: 10px auto;
-
+    font-size: calc(0.3rem + 1vmin);
     outline: none;
   }
+}
+
+.datepicker {
+  font-family: $amatic;
+  color: $main-color;
+  font-size: calc(2rem + 4vmin);
+  width: 100% !important;
+  border: none;
 }
 
 label {

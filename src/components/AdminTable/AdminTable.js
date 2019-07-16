@@ -43,6 +43,10 @@ export default function AdminTable(props) {
         accessor: "name"
       },
       {
+        Header: "Date",
+        accessor: "date"
+      },
+      {
         Header: "Length",
         accessor: "length"
       },

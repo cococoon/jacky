@@ -145,17 +145,17 @@ export default class App extends Component {
               />
               <Route component={PageNotFound} />
               <Route exact path="/error" component={ErrorComponent} />
-              <div style={{ zIndex: 20, display: "flex" }}>
-                {this.state.auth && (
-                  <p>
-                    <button className="btn" onClick={this.handleLogout}>
-                      Log out
-                    </button>
-                  </p>
-                )}
-              </div>
             </Switch>
           </Router>
+          <div style={{ zIndex: 20, display: "flex" }}>
+            {this.state.auth && (
+              <p>
+                <button className="btn" onClick={this.handleLogout}>
+                  Log out
+                </button>
+              </p>
+            )}
+          </div>
           {/* <Footer /> */}
         </div>
       );

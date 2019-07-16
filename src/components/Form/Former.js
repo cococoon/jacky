@@ -42,10 +42,35 @@ export default class Former extends Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-
+    let {
+      city,
+      date,
+      email,
+      firstName,
+      lastName,
+      houseNumber,
+      length,
+      name,
+      postalCode,
+      street,
+      weight
+    } = this.state;
+    date = date.toLocaleDateString();
     fetch(`${BASEURL}/submit`, {
       method: "POST",
-      body: JSON.stringify(this.state),
+      body: JSON.stringify({
+        city,
+        date,
+        email,
+        firstName,
+        lastName,
+        houseNumber,
+        length,
+        name,
+        postalCode,
+        street,
+        weight
+      }),
       mode: "cors",
       headers: {
         "Content-Type": "application/json"

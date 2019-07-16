@@ -72,7 +72,7 @@ input {
     display: block;
     border: none;
     background-color: transparent;
-    color: $yellow;
+    color: $yellow-old;
     font-size: calc(1rem + 8vmin);
     font-family: $amatic;
     font-weight: bold;
@@ -80,18 +80,18 @@ input {
 
     &::placeholder {
       /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: $yellow;
+      color: $yellow-old;
       opacity: 1; /* Firefox */
     }
 
     &:-ms-input-placeholder {
       /* Internet Explorer 10-11 */
-      color: $yellow;
+      color: $yellow-old;
     }
 
     &::-ms-input-placeholder {
       /* Microsoft Edge */
-      color: $yellow;
+      color: $yellow-old;
     }
   }
 

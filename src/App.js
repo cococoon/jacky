@@ -6,8 +6,8 @@ import {
   // BrowserRouter as Router,
   Route,
   Redirect,
-  Switch,
-  NavLink as Link
+  Switch
+  // NavLink as Link
 } from "react-router-dom";
 
 import "./App.scss";
@@ -15,7 +15,7 @@ import "./App.scss";
 import { BASEURL } from "./config/api";
 
 /**IMPORT COMPONENTS */
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 // import Loader from "./components/Loader/Loader";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 

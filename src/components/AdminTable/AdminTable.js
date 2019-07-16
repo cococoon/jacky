@@ -5,8 +5,6 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./AdminTable.scss";
 
-import Loader from "../Loader/Loader";
-
 export default function AdminTable(props) {
   if (props.guesses) {
     // let data = props.guesses;

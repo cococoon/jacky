@@ -20,6 +20,7 @@ export default class Former extends Component {
     this.state = {
       name: "Jacky",
       submitted: false,
+      isLoading: false,
       date: new Date(2019, 9, 27)
     };
     this.handleChange = this.handleChange.bind(this);
@@ -41,7 +42,9 @@ export default class Former extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.setState({
+      isLoading: true
+    });
     let {
       city,
       date,
@@ -80,8 +83,10 @@ export default class Former extends Component {
         return response.json();
       })
       .then(response => {
-        console.log(response);
-
+        this.props.handleGuessResponse(response.guess);
+        return response;
+      })
+      .then(response => {
         this.setState({
           submitted: true
         });
@@ -124,6 +129,7 @@ export default class Former extends Component {
                 this.setState({
                   submitted: true
                 });
+                Promise.resolve();
               })
               .catch(err => {
                 actions.setSubmitting(false);
@@ -182,7 +188,8 @@ export default class Former extends Component {
                 step="0.01"
                 name="weight"
                 onChange={this.handleChange}
-                value={this.state.weight}
+                //weird, but works
+                value={this.state.weightt}
               />
               <h2>Personal info</h2>
               <Field

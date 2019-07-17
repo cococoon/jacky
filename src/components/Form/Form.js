@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { BASEURL } from "../../config/api";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as yup from "yup";
 // import Button from "../Button/Button";
 
 import "./Form.scss";
 import "../Button/Button.scss";
+
+import Loader from "../Loader/Loader";
 
 export default class CardForm extends Component {
   constructor(props) {
@@ -52,6 +52,8 @@ export default class CardForm extends Component {
   render() {
     if (this.state.submitted) {
       return <Redirect to="/thanks" />;
+    } else if (this.state.isLoading) {
+      return <Loader />;
     } else {
       return (
         <form autoComplete="off" onSubmit={this.handleSubmit}>

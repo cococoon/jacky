@@ -21,9 +21,11 @@ import { BASEURL } from "./config/api";
 // import Footer from "./components/Footer/Footer";
 import Loader from "./components/Loader/Loader";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Card from "./components/Card/Card";
 
 /**IMPORT PAGES */
-import Home from "./pages/Home";
+//Home is a useless component at the moment, replaced with Card
+// import Home from "./pages/Home";
 import Thanks from "./pages/Thanks";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
@@ -113,6 +115,12 @@ export default class App extends Component {
     });
   };
 
+  handleGuessResponse = guess => {
+    this.setState({
+      guess: guess
+    });
+  };
+
   render() {
     if (this.state.isLoading) {
       return (
@@ -125,8 +133,24 @@ export default class App extends Component {
         <div className="App">
           <Router style={{ zIndex: "20" }}>
             <Switch>
-              <Route exact className="fadeIn" path="/" component={Home} />
-              <Route exact path="/thanks" component={Thanks} />
+              <Route
+                exact
+                className="fadeIn"
+                path="/"
+                render={props => {
+                  return (
+                    <Card handleGuessResponse={this.handleGuessResponse} />
+                  );
+                }}
+              />
+              <Route
+                exact
+                response={this.state.response}
+                path="/thanks"
+                render={props => {
+                  return <Thanks guess={this.state.guess} />;
+                }}
+              />
               <ProtectedRoute
                 exact
                 path="/admin"

@@ -4,6 +4,11 @@ import anime from "animejs";
 const animeren = anime;
 
 export default class Thanks extends Component {
+  constructor(props) {
+    super(props);
+    this.guess = this.props.guess;
+  }
+
   componentDidMount() {
     animeren({
       targets: "path",
@@ -66,6 +71,27 @@ export default class Thanks extends Component {
             />
           </g>
         </svg>
+        {this.guess && (
+          <div style={{ textAlign: "center" }}>
+            <p>&nbsp;</p>
+            <h2>You guessed:</h2>
+            <p>name: {this.guess.name}</p>
+            <p>weight: {this.guess.weight}kg</p>
+            <p>length: {this.guess.length}cm</p>
+            {/* <h2>Personal info:</h2>
+            <p>first name: {this.guess.firstName}</p>
+            <p>last name: {this.guess.lastName}</p>
+            <p>email: {this.guess.email}</p>
+            <p>
+              adress:
+              <br /> {this.guess.street} {this.guess.houseNumber}
+              <br />
+              {this.guess.postalCode} {this.guess.city}
+            </p>
+            <p>name: {this.guess.name}</p>
+            <p>name: {this.guess.name}</p> */}
+          </div>
+        )}
       </div>
     );
   }

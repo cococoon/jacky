@@ -6,8 +6,8 @@ import Graphic from "../Graphic/Graphic";
 
 // // let animate = anime;
 
-export default function Card() {
-  // CAN'T GET IT WORKING :-)
+export default function Card(props) {
+  // CAN'T GET IT WORKING :-(
   // let playing = false;
 
   // const turnCard = () => {
@@ -30,10 +30,10 @@ export default function Card() {
   // };
 
   return (
-    <div className="card-container">
+    <div className="card-container" style={{ zIndex: "20" }}>
       <div className="card">
         <Graphic />
-        <Former />
+        <Former handleGuessResponse={props.handleGuessResponse} />
       </div>
     </div>
   );

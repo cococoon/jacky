@@ -76,6 +76,7 @@ export default class Thanks extends Component {
             <p>&nbsp;</p>
             <h2>You guessed:</h2>
             <p>name: {this.guess.name}</p>
+            <p>born on: {this.guess.date}</p>
             <p>weight: {this.guess.weight}kg</p>
             <p>length: {this.guess.length}cm</p>
             {/* <h2>Personal info:</h2>

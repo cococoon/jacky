@@ -27,6 +27,10 @@ export default class Former extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    document.getElementById("guessName").focus();
+  }
+
   handleChange = e => {
     let value = e.target.value;
     this.setState({
@@ -137,13 +141,35 @@ export default class Former extends Component {
               });
           }}
           render={({ errors, status, touched, isSubmitting }) => (
-            <Form onSubmit={this.handleSubmit}>
-              <h2>Guess my name</h2>
+            <Form onSubmit={this.handleSubmit} autoComplete="off">
+              {/* <div className="name-title-container"> */}
+              <h2 className="name-title-title">Guess my name</h2>
+              {/* <div className="name-title-arrow">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 76.62 92.34"
+                  >
+                    <g id="Layer_2" data-name="Layer 2">
+                      <g id="Layer_1-2" data-name="Layer 1">
+                        <path
+                          class="cls-1"
+                          d="M74.24,1.75C59.32-.1,43.41-1.9,29.21,4.3A49.11,49.11,0,0,0,4.46,29.21c-4.17,9.34-7.62,24.51.28,32.85,4.18,4.4,10.41,6.93,16,9a80.55,80.55,0,0,0,22.43,4.81c3.21.24,3.2-4.76,0-5C32.11,70.07,17,67.11,8.79,59,.85,51.19,6.6,34.73,11.43,26.6A43.11,43.11,0,0,1,35.54,7.27c12.54-3.81,25.94-2.11,38.7-.52,3.19.39,3.16-4.61,0-5Z"
+                        />
+                        <path
+                          class="cls-1"
+                          d="M40.8,60.84q12.54,7.17,25,14.41l-.51-3.93C54.19,81.83,34.73,74.23,25.7,88.64,24,91.38,28.31,93.89,30,91.17c4.32-6.89,13-7.77,20.35-8.88,6.82-1,13.35-2.57,18.51-7.43a2.53,2.53,0,0,0-.51-3.93q-12.49-7.23-25-14.4c-2.79-1.6-5.32,2.72-2.52,4.31Z"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div> */}
               <Field
                 required
+                id="guessName"
                 type="text"
-                name="name"
-                className="name"
+                name="guessName"
+                className="guessName"
                 autoComplete="off"
                 onChange={this.handleChange}
                 value={this.state.name}
